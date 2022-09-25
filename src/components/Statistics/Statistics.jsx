@@ -1,6 +1,11 @@
 import { Text } from './../Title/Title.styled';
-import { Feedback, Total } from './Statistics.styled';
-export const Statictics = ({ feedbacks, stats, totalFeedbacks }) => {
+import { Feedback, Total, Percentage } from './Statistics.styled';
+export const Statictics = ({
+  feedbacks,
+  stats,
+  totalFeedbacks,
+  positivePersentage,
+}) => {
   return (
     <div>
       <Text>Statistics</Text>
@@ -12,9 +17,11 @@ export const Statictics = ({ feedbacks, stats, totalFeedbacks }) => {
         );
       })}
       <Total>
-        Total:
-        <span>{totalFeedbacks}</span>
+        Total: <span>{totalFeedbacks}</span>
       </Total>
+      <Percentage>
+        Positive feedbacks: <span>{positivePersentage}</span>%
+      </Percentage>
     </div>
   );
 };
