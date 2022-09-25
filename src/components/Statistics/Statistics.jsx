@@ -1,6 +1,6 @@
 import { Text } from './../Title/Title.styled';
-import { Feedback } from './Statistics.styled';
-export const Statictics = ({ feedbacks, stats }) => {
+import { Feedback, Total } from './Statistics.styled';
+export const Statictics = ({ feedbacks, stats, totalFeedbacks }) => {
   return (
     <div>
       <Text>Statistics</Text>
@@ -11,6 +11,10 @@ export const Statictics = ({ feedbacks, stats }) => {
           </Feedback>
         );
       })}
+      <Total>
+        Total:
+        <span>{totalFeedbacks}</span>
+      </Total>
     </div>
   );
 };

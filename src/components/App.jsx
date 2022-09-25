@@ -14,8 +14,15 @@ export class App extends Component {
   handleIncrement = feedback => {
     this.setState(prevState => ({ [feedback]: prevState[feedback] + 1 }));
   };
-
+  countTotalFeedback = valuesArray => {
+    return valuesArray.reduce((acc, value) => {
+      return acc + value;
+    }, 0);
+  };
   render() {
+    const valuesArray = Object.values(this.state);
+    const totalFeedbacks = this.countTotalFeedback(valuesArray);
+
     return (
       <Container>
         <Title>Please leave feedback</Title>
@@ -26,6 +33,7 @@ export class App extends Component {
         <Statictics
           feedbacks={Object.keys(this.state)}
           stats={this.state}
+          totalFeedbacks={totalFeedbacks}
         ></Statictics>
       </Container>
     );
