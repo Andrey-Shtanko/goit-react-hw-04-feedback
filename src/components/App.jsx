@@ -4,6 +4,7 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Container } from './App.styled';
 import { Statictics } from './Statistics/Statistics';
 import { Section } from './Section/Section';
+import { Notification } from './Notification/Notification';
 
 export class App extends Component {
   state = {
@@ -45,12 +46,16 @@ export class App extends Component {
           ></FeedbackOptions>
         </Section>
         <Section title="Statistics">
-          <Statictics
-            feedbacks={Object.keys(this.state)}
-            stats={this.state}
-            totalFeedbacks={totalFeedbacks}
-            positivePersentage={positivePersentage}
-          ></Statictics>
+          {totalFeedbacks !== 0 ? (
+            <Statictics
+              feedbacks={Object.keys(this.state)}
+              stats={this.state}
+              totalFeedbacks={totalFeedbacks}
+              positivePersentage={positivePersentage}
+            ></Statictics>
+          ) : (
+            <Notification message="There is no feedback"></Notification>
+          )}
         </Section>
       </Container>
     );
