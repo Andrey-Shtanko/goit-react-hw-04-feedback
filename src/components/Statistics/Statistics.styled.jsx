@@ -3,6 +3,8 @@ export const Feedback = styled.p`
   text-transform: capitalize;
   font-weight: 500;
   font-size: 24px;
+  padding-top: 0;
+  margin-top: 0;
 `;
 
 export const Total = styled.p`

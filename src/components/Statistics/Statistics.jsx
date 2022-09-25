@@ -1,5 +1,5 @@
-import { Text } from './../Title/Title.styled';
 import { Feedback, Total, Percentage } from './Statistics.styled';
+
 export const Statictics = ({
   feedbacks,
   stats,
@@ -8,7 +8,6 @@ export const Statictics = ({
 }) => {
   return (
     <div>
-      <Text>Statistics</Text>
       {feedbacks.map(feedback => {
         return (
           <Feedback key={feedback}>

@@ -1,8 +1,9 @@
 import { Component } from 'react';
-import { Buttons } from './Buttons/Buttons';
-import { Title } from './Title/Title';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+
 import { Container } from './App.styled';
 import { Statictics } from './Statistics/Statistics';
+import { Section } from './Section/Section';
 
 export class App extends Component {
   state = {
@@ -37,17 +38,20 @@ export class App extends Component {
 
     return (
       <Container>
-        <Title>Please leave feedback</Title>
-        <Buttons
-          feedbacks={Object.keys(this.state)}
-          onHandleIncrement={this.handleIncrement}
-        ></Buttons>
-        <Statictics
-          feedbacks={Object.keys(this.state)}
-          stats={this.state}
-          totalFeedbacks={totalFeedbacks}
-          positivePersentage={positivePersentage}
-        ></Statictics>
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={Object.keys(this.state)}
+            onLeaveFeedback={this.handleIncrement}
+          ></FeedbackOptions>
+        </Section>
+        <Section title="Statistics">
+          <Statictics
+            feedbacks={Object.keys(this.state)}
+            stats={this.state}
+            totalFeedbacks={totalFeedbacks}
+            positivePersentage={positivePersentage}
+          ></Statictics>
+        </Section>
       </Container>
     );
   }
